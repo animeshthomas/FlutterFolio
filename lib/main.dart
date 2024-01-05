@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testone/Screens/Login.dart';
+import 'package:testone/Screens/TabView.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(TabView());
 
 class MyApp extends StatelessWidget {
 
