@@ -1,11 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:testone/main.dart';
 
-class Register extends StatelessWidget {
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController pswd = TextEditingController();
+import '../main.dart';
 
+class AddNumbers extends StatefulWidget {
+  const AddNumbers({super.key});
+
+  @override
+  State<AddNumbers> createState() => _AddNumbersState();
+}
+
+class _AddNumbersState extends State<AddNumbers> {
+  TextEditingController num1 = TextEditingController();
+  TextEditingController num2 = TextEditingController();
+  int _sum=0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,11 +28,11 @@ class Register extends StatelessWidget {
           child: Column(
             children: [
               TextField(
-                controller: name, // Use name controller for name field
+                controller: num1,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.contact_mail_sharp),
-                  labelText: "Name",
-                  hintText: "Enter Your Name",
+                  prefixIcon: Icon(Icons.numbers_rounded),
+                  labelText: "First Number",
+                  hintText: "Enter Num1",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -32,24 +40,11 @@ class Register extends StatelessWidget {
               ),
               SizedBox(height: 20),
               TextField(
-                controller: email,
+                controller: num2,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.account_box),
-                  labelText: "Email",
-                  hintText: "Enter Your Email",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                obscureText: true,
-                controller: pswd,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.password_rounded),
-                  labelText: "Password",
-                  hintText: "Enter Your Password",
+                  prefixIcon: Icon(Icons.numbers_rounded),
+                  labelText: "Second Number",
+                  hintText: "Enter Num2",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -61,13 +56,14 @@ class Register extends StatelessWidget {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    var getName = name.text; // Use getName for name value
-                    var getEmail = email.text;
-                    var getPswd = pswd.text;
-                    print(getName + getEmail + getPswd);
+                    setState(() {
+                      var getResult = int.parse(num1.text)+int.parse(num2.text);
+                      _sum=getResult;
+                      print(getResult);
+                    });
                   },
                   child: Text(
-                    "Register",
+                    "Add Numbers",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -87,7 +83,7 @@ class Register extends StatelessWidget {
                         context, MaterialPageRoute(builder: (context) => MyApp()));
                   },
                   child: Text(
-                    "Go to Login",
+                    "Back To Login",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -95,7 +91,11 @@ class Register extends StatelessWidget {
                   ),
                   style: ElevatedButton.styleFrom(primary: Colors.brown),
                 ),
-              )
+              ),
+              Text(_sum.toString(),style: TextStyle(
+                fontSize: 55,
+                color: Colors.indigo,
+              )),
             ],
           ),
         ),

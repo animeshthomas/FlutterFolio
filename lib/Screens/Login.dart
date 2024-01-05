@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:testone/Screens/AddNumbers.dart';
 import 'package:testone/Screens/Register.dart';
 
 class Login extends StatelessWidget {
+
   TextEditingController email = TextEditingController();
   TextEditingController pswd = TextEditingController();
 
@@ -75,6 +77,25 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(primary: Colors.brown),
+              ),
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 50,
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  print("Button Clicked");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNumbers()));
+                },
+                child: Text(
+                  "Calculator App",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(primary: Colors.yellowAccent),
               ),
             )
           ],
