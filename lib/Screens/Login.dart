@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testone/Screens/AddNumbers.dart';
+import 'package:testone/Screens/ContactsDynamic.dart';
 import 'package:testone/Screens/Counter.dart';
 import 'package:testone/Screens/Register.dart';
 import 'package:testone/Screens/ViewStudents.dart';
@@ -136,6 +137,25 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(primary: Colors.deepOrange),
+              ),
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 50,
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  print("Button Clicked");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Contacts()));
+                },
+                child: Text(
+                  "Contacts Dynamic",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(primary: Colors.redAccent),
               ),
             )
           ],

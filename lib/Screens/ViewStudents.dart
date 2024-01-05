@@ -30,13 +30,13 @@ class ViewStudents extends StatelessWidget {
                     IconButton(
                       icon: Icon(Icons.call, color: Colors.blueAccent,),
                       onPressed: () {
-                        // Handle call action
+
                       },
                     ),
                     IconButton(
                       icon: Icon(Icons.message, color: Colors.blueAccent,),
                       onPressed: () {
-                        // Handle message action
+
                       },
                     ),
                   ],
